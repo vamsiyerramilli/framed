@@ -26,7 +26,6 @@ struct FramedApp: App {
                     await IngestManager.shared.startMonitoring()
                 }
         }
-        .windowResizability(.contentSize)
         .commands {
             TestIngestCommands()
         }

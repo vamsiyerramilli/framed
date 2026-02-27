@@ -4,7 +4,7 @@ import GRDB
 /// A pre-computed time-of-day section within a day in the review feed.
 /// Sections are derived from natural gaps in shooting activity (not fixed clock buckets).
 /// Only rendered when a day has 5 or more stacks.
-struct FeedSection: FetchableRecord, PersistableRecord, Codable, Sendable {
+struct FeedSectionRecord: FetchableRecord, PersistableRecord, Codable, Sendable {
     static let databaseTableName = "feed_sections"
 
     /// UUID.
