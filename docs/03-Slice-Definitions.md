@@ -59,12 +59,20 @@ Each slice section contains: goal, scope, technical approach, acceptance criteri
 
 ---
 
+### Testing Approach
+
+**AC-1.2 requires physical hardware.** All other criteria (AC-1.3 through AC-1.11) can be verified without an SD card using the **"File → Test Ingest from Folder…"** menu item (⌘⇧I). This triggers the full ingest pipeline against any folder of image files on disk, bypassing DiskArbitration detection entirely. Create a test folder with a few JPEG or RAW files and use this menu item to drive all pipeline verification.
+
+**Decision recorded:** A `triggerTestIngest(from:)` method was added to `IngestManager` and exposed via a macOS menu command (`File → Test Ingest from Folder…`, ⌘⇧I). This is a permanent development affordance — it enables pipeline testing without hardware in any future slice that extends the pipeline.
+
+---
+
 ### Acceptance Criteria
 
 **AC-1.1 — App launches**
 The app launches on macOS without crash or error. The main window appears.
 
-**AC-1.2 — SD card detection**
+**AC-1.2 — SD card detection** *(requires hardware — test separately)*
 Inserting an SD card (with a DCIM folder) triggers detection within 3 seconds. Log message confirms detection.
 
 **AC-1.3 — File enumeration**
